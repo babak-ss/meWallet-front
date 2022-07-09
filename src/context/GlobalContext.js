@@ -4,10 +4,10 @@ import { Grid } from '@mui/material';
 // Initial State
 const initialState = {
     transactions: [
-      { id: 1, account: 'Sepah', text: 'Flower', amount: -20 },
-      { id: 2, account: 'Melli', text: 'Salary', amount: 300 },
-      { id: 3, account: 'Melli', text: 'Book', amount: -10 },
-      { id: 4, account: 'Melli', text: 'Camera', amount: 150 }
+      { id: 1, date: new Date(2022,0,1), account: 'Sepah', text: 'Flower', amount: -20 },
+      { id: 2, date: new Date(2022,0,1), account: 'Melli', text: 'Salary', amount: 300 },
+      { id: 3, date: new Date(2022,0,1), account: 'Melli', text: 'Book', amount: -10 },
+      { id: 4, date: new Date(2022,0,1), account: 'Melli', text: 'Camera', amount: 150 }
     ]
 }
 

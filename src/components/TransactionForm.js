@@ -4,9 +4,13 @@ import { IncomeExpenseSwitch } from './IncomeExpenseSwitch'
 import { GlobalContext } from '../context/GlobalContext';
 import { Button, Grid, InputAdornment, TextField } from '@mui/material';
 import { Box } from '@mui/system';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 
 export const TransactionForm = () => {
 
+    const [date, setDate] = React.useState(Date.now);
     const [text, setText] = React.useState('');
     const [amount, setAmount] = React.useState(0);
     const [bank, setBank] = React.useState('');
@@ -43,6 +47,14 @@ export const TransactionForm = () => {
   return (
     <Grid item>
             <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <MobileDatePicker
+                label="Date"
+                inputFormat="MM/dd/yyyy"
+                value={date}
+                onChange={(e) => {setDate(e.target.value)}}
+                renderInput={(params) => <TextField {...params} sx={{m: 2}} fullWidth/>}
+                /></LocalizationProvider>
                 <TextField sx={{m: 2}} fullWidth label="Text" variant="outlined" type="text" placeholder="Text..." value={text} onChange={(e) => {setText(e.target.value)}}/>
                 <TextField sx={{m: 2}} fullWidth label="Amount" variant="outlined" type="number" placeholder="Amount..." value={amount} onChange={(e) => {setAmount(e.target.value)}}
                     InputProps={{
