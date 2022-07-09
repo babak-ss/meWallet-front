@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { AccountSelect } from './AccountSelect'
 import { IncomeExpenseSwitch } from './IncomeExpenseSwitch'
 import { GlobalContext } from '../context/GlobalContext';
+import { Button, Grid, InputAdornment, TextField } from '@mui/material';
+import { Box } from '@mui/system';
 
 export const TransactionForm = () => {
 
@@ -26,6 +28,7 @@ export const TransactionForm = () => {
     }
 
     const onSubmit = e => {
+        console.log("On Submit!!!!!!");
         e.preventDefault();
 
         const newTransaction = {
@@ -38,14 +41,17 @@ export const TransactionForm = () => {
         addTransaction(newTransaction);
     }
   return (
-    <form onSubmit={onSubmit}>
-        <div className="form-control">
-            <input type="text" placeholder="Text..." value={text} onChange={(e) => {setText(e.target.value)}}/>
-            <input type="number" placeholder="Amount..." value={amount} onChange={(e) => {setAmount(e.target.value)}}/>
-            <AccountSelect onChange={handleAccountChange} />
-            <IncomeExpenseSwitch onChange={handleSignChange}/>
-        </div>
-        <button className="btn">ADD</button>
-    </form>
+    <Grid item>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                <TextField sx={{m: 2}} fullWidth label="Text" variant="outlined" type="text" placeholder="Text..." value={text} onChange={(e) => {setText(e.target.value)}}/>
+                <TextField sx={{m: 2}} fullWidth label="Amount" variant="outlined" type="number" placeholder="Amount..." value={amount} onChange={(e) => {setAmount(e.target.value)}}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">Rial</InputAdornment>,//TODO: this can be a 'Rial icon' :D
+                    }}/>
+                <AccountSelect onChange={handleAccountChange} />
+                <IncomeExpenseSwitch onChange={handleSignChange}/>
+                <Button sx={{m:2}} fullWidth variant="contained" onClick={onSubmit}>ADD</Button>
+            </Box>
+    </Grid>
   )
 }

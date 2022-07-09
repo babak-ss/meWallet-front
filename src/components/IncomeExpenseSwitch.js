@@ -16,7 +16,7 @@ export const IncomeExpenseSwitch = ({ value, onChange }) => {
 
   return (
     <div>
-      <Stack direction="row" spacing={1} alignItems="center">
+      <Stack sx={{m:2}} direction="row" spacing={1} alignItems="center">
         <Typography>Expense</Typography>
           <Switch inputProps={{ 'aria-label': 'Switch demo' }} value={sign} onChange={handleChange}/>
         <Typography>Income</Typography>

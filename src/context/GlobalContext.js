@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react'
+import { Grid } from '@mui/material';
 
 // Initial State
 const initialState = {
@@ -37,7 +38,9 @@ export const GlobalProvider = ({ children }) => {
             // deleteTransaction,
             addTransaction
         }}>
-            { children }
+            <Grid container xs={12} justifyContent="center">
+                { children }
+            </Grid>
         </GlobalContext.Provider>
     );
 }

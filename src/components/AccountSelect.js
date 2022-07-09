@@ -2,6 +2,7 @@ import React from 'react'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import { FormControl } from '@mui/material';
 
 export const AccountSelect = ({value, onChange}) => {
     const [account, setAccount] = React.useState('')
@@ -11,7 +12,7 @@ export const AccountSelect = ({value, onChange}) => {
         onChange(event.target.value);
     }
     return (
-        <div>
+        <FormControl fullWidth sx={{ m: 2}}>
             <InputLabel id="account-select-label">Account</InputLabel>
             <Select
                 labelId="account-select-label"
@@ -24,6 +25,6 @@ export const AccountSelect = ({value, onChange}) => {
                 <MenuItem value={"Pasargad"}>Pasargad</MenuItem>
                 <MenuItem value={"Sepah"}>Sepah</MenuItem>
             </Select>  
-        </div>
+        </FormControl>
     )
 }

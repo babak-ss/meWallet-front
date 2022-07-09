@@ -1,7 +1,8 @@
+import { Typography } from '@mui/material'
 import React from 'react'
 
 export const Header = () => {
   return (
-    <h2>meWallet</h2>
+    <Typography variant="h1">meWallet</Typography>
   )
 }
