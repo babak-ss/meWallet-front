@@ -37,6 +37,7 @@ export const TransactionForm = () => {
 
         const newTransaction = {
             id: Math.floor(Math.random() * 100000000), //TODO: more unic id
+            date: Date(date),
             bank,
             text,
             amount: (sign) ? Number(amount) : -1*Number(amount)
@@ -50,7 +51,7 @@ export const TransactionForm = () => {
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <MobileDatePicker
                 label="Date"
-                inputFormat="MM/dd/yyyy"
+                inputFormat="dd/MM/yyyy"
                 value={date}
                 onChange={(e) => {setDate(e.target.value)}}
                 renderInput={(params) => <TextField {...params} sx={{m: 2}} fullWidth/>}

@@ -3,6 +3,6 @@ import React from 'react'
 
 export const Header = () => {
   return (
-    <Typography variant="h1">meWallet</Typography>
+    <Typography sx={{m:2}} variant="h1">meWallet</Typography>
   )
 }
