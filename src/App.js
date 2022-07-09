@@ -1,4 +1,4 @@
-import './App.css'
+import './Styles.css'
 import { AddTransaction } from './components/AddTransaction'
 import { Balance } from './components/Balance'
 import { Header } from './components/Header'

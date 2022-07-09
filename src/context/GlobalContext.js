@@ -3,10 +3,10 @@ import React, { createContext, useReducer } from 'react'
 // Initial State
 const initialState = {
     transactions: [
-      { id: 1, text: 'Flower', amount: -20 },
-      { id: 2, text: 'Salary', amount: 300 },
-      { id: 3, text: 'Book', amount: -10 },
-      { id: 4, text: 'Camera', amount: 150 }
+      { id: 1, text: 'Flower', amount: 20, sign: false },
+      { id: 2, text: 'Salary', amount: 300, sign: true },
+      { id: 3, text: 'Book', amount: 10, sign: false },
+      { id: 4, text: 'Camera', amount: 150, sign: true }
     ]
 }
 
