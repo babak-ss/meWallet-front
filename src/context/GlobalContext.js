@@ -3,10 +3,10 @@ import React, { createContext, useReducer } from 'react'
 // Initial State
 const initialState = {
     transactions: [
-      { id: 1, text: 'Flower', amount: 20, sign: false },
-      { id: 2, text: 'Salary', amount: 300, sign: true },
-      { id: 3, text: 'Book', amount: 10, sign: false },
-      { id: 4, text: 'Camera', amount: 150, sign: true }
+      { id: 1, account: 'Sepah', text: 'Flower', amount: -20 },
+      { id: 2, account: 'Melli', text: 'Salary', amount: 300 },
+      { id: 3, account: 'Melli', text: 'Book', amount: -10 },
+      { id: 4, account: 'Melli', text: 'Camera', amount: 150 }
     ]
 }
 
@@ -18,12 +18,12 @@ export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     // Actions
-    function deleteTransaction(id) {
-        dispatch({
-            type: 'DELETE_TRANSACTION',
-            payload: id
-        });
-    }
+    // function deleteTransaction(id) {
+    //     dispatch({
+    //         type: 'DELETE_TRANSACTION',
+    //         payload: id
+    //     });
+    // }
     function addTransaction(transaction) {
         dispatch({
             type: 'ADD_TRANSACTION',
@@ -34,21 +34,21 @@ export const GlobalProvider = ({ children }) => {
     return (
         <GlobalContext.Provider value = {{
             transactions: state.transactions,
-            deleteTransaction,
+            // deleteTransaction,
             addTransaction
         }}>
-            {children }
+            { children }
         </GlobalContext.Provider>
     );
 }
 
 function AppReducer(state, action) {
     switch(action.type) {
-        case 'DELETE_TRANSACTION':
-            return {
-                ...state,
-                transactions: state.transactions.filter((transaction => transaction.id != action.payload))
-            }
+        // case 'DELETE_TRANSACTION':
+        //     return {
+        //         ...state,
+        //         transactions: state.transactions.filter((transaction => transaction.id != action.payload))
+        //     }
         case 'ADD_TRANSACTION':
             return {
                 ...state,
